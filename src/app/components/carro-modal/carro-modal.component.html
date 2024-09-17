@@ -1,0 +1,35 @@
+<div class="abrir-modal animacion fadeIn">
+  <div class="modal" style="display: block" tabindex="-1">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">Carro de Compras!</div>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="openCarro()"
+          ></button>
+        </div>
+        <div class="modal-body">
+          @if (itemsModal.length > 0) {
+          <app-carro
+            [items]="itemsModal"
+            (idProductEventEmiter)="onDeleteProduct($event)"
+          >
+          </app-carro>
+          }@else {
+          <div class="alert alert-warning">No hay productos en el carro!</div>
+          }
+          <button
+            class="btn btn-secondary btn-sm float-end"
+            (click)="openCarro()"
+          >
+            Cerrar Carro
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
